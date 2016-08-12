@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Trackify.Models;
 
 namespace Trackify.ViewModels
@@ -10,5 +11,13 @@ namespace Trackify.ViewModels
         public string Time { get; set; }
         public byte Category { get; set; }
         public IEnumerable<Category> Categories { get; set; }
+        public DateTime DateTime
+        {
+            get
+            {
+                return DateTime.Parse(string.Format("{0} {1}", Date, Time));
+
+            }
+        }
     }
 }
