@@ -190,6 +190,10 @@
     <Compile Include="Migrations\201608020405414_populateCategoryTable.Designer.cs">
       <DependentUpon>201608020405414_populateCategoryTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201608121947123_addForeignKeyPropertiesToEvent.cs" />
+    <Compile Include="Migrations\201608121947123_addForeignKeyPropertiesToEvent.Designer.cs">
+      <DependentUpon>201608121947123_addForeignKeyPropertiesToEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -282,6 +286,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608020405414_populateCategoryTable.resx">
       <DependentUpon>201608020405414_populateCategoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608121947123_addForeignKeyPropertiesToEvent.resx">
+      <DependentUpon>201608121947123_addForeignKeyPropertiesToEvent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

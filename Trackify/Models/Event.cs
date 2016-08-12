@@ -7,8 +7,10 @@ namespace Trackify.Models
     {
         public int Id { get; set; }
 
-        [Required]
         public ApplicationUser Company { get; set; }
+
+        [Required]
+        public string CompanyId { get; set; }
 
         public DateTime DateTime { get; set; }
 
@@ -16,8 +18,10 @@ namespace Trackify.Models
         [StringLength(255)]
         public String Venue { get; set; }
 
-        [Required]
         public Category Category { get; set; }
+
+        [Required]
+        public byte CategoryId { get; set; }
     }
 
 
