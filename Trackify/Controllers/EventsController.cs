@@ -30,11 +30,17 @@ namespace Trackify.Controllers
         [HttpPost]
         public ActionResult Create(EventFormViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                viewModel.Categories = _context.Categories.ToList();
+                return View("Create", viewModel);
+            }
+
 
             var ev = new Event
             {
                 CompanyId = User.Identity.GetUserId(),
-                DateTime = viewModel.DateTime,
+                DateTime = viewModel.GetDateTime(),
                 CategoryId = viewModel.Category,
                 Venue = viewModel.Venue
             };
