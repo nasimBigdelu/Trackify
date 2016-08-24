@@ -4,10 +4,19 @@
 }
 
 
-<ul>
+<ul class="events">
     @foreach (var ev in Model)
-    {
-        <li> @ev.DateTime   - @ev.Company.Name</li>
+            {
+        <li>
+        <div class="date">
+            <div class="month">@ev.DateTime.ToString("MMM") </div>
+            <div class="day">@ev.DateTime.ToString("d ")</div>
+        </div>
+            <div class="details">
+                <span class="company">@ev.Company.Name</span>
+                <span class="category">@ev.Category.Name</span>
+            </div>
+            </li>
     }
 
-</ul>>
+</ul>

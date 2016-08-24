@@ -18,6 +18,7 @@ namespace Trackify.Controllers
         public ActionResult Index()
         {
             var upcomingEvents = _context.Events
+                .Include(g => g.Category)
                 .Include(g => g.Company)
                 .Where(g => g.DateTime > DateTime.Now);
 
