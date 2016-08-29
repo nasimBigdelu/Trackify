@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Trackify.Models;
+using Trackify.ViewModels;
 
 namespace Trackify.Controllers
 {
@@ -22,7 +23,14 @@ namespace Trackify.Controllers
                 .Include(g => g.Company)
                 .Where(g => g.DateTime > DateTime.Now);
 
-            return View(upcomingEvents);
+            var viewModel = new HomeViewModel
+            {
+                UpcomingEvents = upcomingEvents,
+                ShowActions = User.Identity.IsAuthenticated
+
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult About()
