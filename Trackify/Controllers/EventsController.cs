@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Trackify.Models;
@@ -24,6 +25,28 @@ namespace Trackify.Controllers
             };
 
             return View(viewModel);
+        }
+
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+            var events = _context.Attendances
+                .Where(a => a.AttendeeId == userId)
+                .Select(a => a.Event)
+                .Include(e => e.Company)
+                .Include(e => e.Category)
+                .ToList();
+
+            var viewModel = new HomeViewModel()
+            {
+                UpcomingEvents = events,
+                ShowActions = User.Identity.IsAuthenticated
+            };
+
+
+            return View(viewModel);
+
         }
 
         [Authorize]
